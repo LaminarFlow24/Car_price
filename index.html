@@ -14,14 +14,12 @@
         </video>
     </div>
     <nav class="nav-bar">
-        <div class="nav-container">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Customer Care</a></li>
-                <li><a href="#">Report</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#"  id="about-us-button">About Us</a></li>
+            <li><a href="#">Customer Care</a></li>
+            <li><a href="#">Report</a></li>
+        </ul>
     </nav>
     <div class="login-button-container">
         <button id="login-button" class="login-button">SIGN UP</button>
@@ -56,15 +54,53 @@
             <button id="cancel-button" class="cancel-button">Cancel</button>
         </div>
     </div>
+    <div id="about-us-slide" class="about-us-slide">
+        <div class="about-us-content">
+            
+            <h2>About Us</h2>
+            <section class="our-story">
+                <h3>Our Story</h3>
+                <p>Welcome to CarInsight!, where we help you to find the right price of your used car using machine learning!</p>
+            </section>
+            
+            <section class="meet-the-team">
+                <h3>Meet the Team</h3>
+                <div class="team-member">
+                    <img src="yashas.jpg" alt="yashas">
+                    <h4>Yashas Jain</h4>
+                    <p>Title or Position</p>
+                    <p>A brief description of Person 1, their role, background, and contributions to the company.</p>
+                </div>
+                <div class="team-member">
+                    <img src="shree.jpg" alt="shree">
+                    <h4>Shree Mengshetti</h4>
+                    <p>Title or Position</p>
+                    <p>A brief description of Person 2, their role, background, and contributions to the company.</p>
+                </div>
+                <div class="team-member">
+                    <img src="soham.jpg" alt="soham">
+                    <h4>Soham Gogawale</h4>
+                    <p>Title or Position</p>
+                    <p>A brief description of Person 3, their role, background, and contributions to the company.</p>
+                </div>
+                <div class="team-member">
+                    <img src="shashwat.jpg" alt="shashwat">
+                    <h4>Shashwat Awate</h4>
+                    <p>Title or Position</p>
+                    <p>A brief description of Person 4, their role, background, and contributions to the company.</p>
+                </div>
+            </section>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
-    <script type="module">
+<script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
     
-    // Your web app's Firebase configuration
+    // web app's Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyCDBDzKlpR2tp-iU3d3mE-X633_tst7RFQ",
         authDomain: "carpricedatabase-cf2d7.firebaseapp.com",
