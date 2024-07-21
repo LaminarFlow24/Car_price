@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const knowMoreOutput = document.getElementById('know-more-output');
     const knowMoreContainer = document.querySelector('.know-more-container');
     const loginButtonContainer = document.querySelector('.login-button-container');
+    const menuIcon = document.getElementById('menu-icon');
+    const navLinks = document.getElementById('nav-links');
 
     setTimeout(() => {
         frontPage.classList.add('fade-out');
@@ -54,34 +56,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // Toggle nav links visibility on menu icon click
+    menuIcon.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+    });
+
     // Close the translucent slide when pressing the Escape key
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             translucentSlide.classList.remove('show');
-        }
-    });
-
-    signupForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        
-        // Get form elements
-        var username = document.getElementById('first_name').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('confirm_password').value;
-        
-        // Basic validation
-        if (username && email && password && confirmPassword) {
-            if (password === confirmPassword) {
-                // Redirect to "xyz" link if all fields are filled and passwords match
-                window.location.href = 'https://icarprice.streamlit.app/';
-            } else {
-                // Alert user if passwords do not match
-                alert('Passwords do not match.');
-            }
-        } else {
-            // Alert user to fill all fields
-            alert('Please fill in all fields.');
         }
     });
 });
