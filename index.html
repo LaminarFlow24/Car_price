@@ -1,171 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="front-page"></div>
-    <div class="background-image">
-        <video src="image/vid.mp4" autoplay loop muted playsinline>
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <nav class="nav-bar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#"  id="about-us-button">About Us</a></li>
-            <li><a href="#">Customer Care</a></li>
-            <li><a href="#">Report</a></li>
-        </ul>
-    </nav>
-    <div class="login-button-container">
-        <button id="login-button" class="login-button">SIGN UP</button>
-    </div>
-    <div class="know-more-container">
-        <p id="know-more-output">Know more about your car</p>
-    </div>
-    <div id="translucent-slide" class="translucent-slide">
-        <div class="container">
-            <div id="signup-form">
-                <div class="heading">Sign Up</div>
-                <form action="" class="form">
-                    <input required class="input" type="text" name="first_name" id="first_name" placeholder="First Name">
-                    <input required class="input" type="text" name="last_name" id="last_name" placeholder="Last Name">
-                    <input required class="input" type="email" name="email" id="email" placeholder="Email ID">
-                    <input required class="input" type="password" name="password" id="password" placeholder="Password">
-                    <input required class="input" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
-                    <span class="forgot-password"><a href="#" id="to-login">Already have an account?</a></span>
-                    <input class="login-button" type="submit" value="Sign Up">
-                </form>
-            </div>
-            <div id="login-form" style="display: none;">
-                <div class="heading">Login</div>
-                <form action="" class="form">
-                    <input required class="input" type="email" name="email" id="login_email" placeholder="Email ID">
-                    <input required class="input" type="password" name="password" id="login_password" placeholder="Password">
-                    <span class="forgot-password"><a href="#" id="to-signup">Don't have an account?</a></span>
-                    <input class="login-button" type="submit" value="Login">
-                </form>
-            </div>
-            <div class="social-account-container"></div>
-            <button id="cancel-button" class="cancel-button">Cancel</button>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="front-page"></div>
+        <div class="background-image">
+            <video src="vid.mp4" autoplay loop muted playsinline>
+                Your browser does not support the video tag.
+            </video>
         </div>
-    </div>
-    <div id="about-us-slide" class="about-us-slide">
-        <div class="about-us-content">
-            
-            <h2>About Us</h2>
-            <section class="our-story">
-                <h3>Our Story</h3>
-                <p>Welcome to CarInsight!, where we help you to find the right price of your used car using machine learning!</p>
-            </section>
-            
-            <section class="meet-the-team">
-                <h3>Meet the Team</h3>
-                <div class="team-member">
-                    <img src="yashas.jpg" alt="yashas">
-                    <h4>Yashas Jain</h4>
-                    <p>Title or Position</p>
-                    <p>A brief description of Person 1, their role, background, and contributions to the company.</p>
-                </div>
-                <div class="team-member">
-                    <img src="shree.jpg" alt="shree">
-                    <h4>Shree Mengshetti</h4>
-                    <p>Title or Position</p>
-                    <p>A brief description of Person 2, their role, background, and contributions to the company.</p>
-                </div>
-                <div class="team-member">
-                    <img src="soham.jpg" alt="soham">
-                    <h4>Soham Gogawale</h4>
-                    <p>Title or Position</p>
-                    <p>A brief description of Person 3, their role, background, and contributions to the company.</p>
-                </div>
-                <div class="team-member">
-                    <img src="shashwat.jpg" alt="shashwat">
-                    <h4>Shashwat Awate</h4>
-                    <p>Title or Position</p>
-                    <p>A brief description of Person 4, their role, background, and contributions to the company.</p>
-                </div>
-            </section>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#"  id="about-us-button">About Us</a></li>
+                <li><a href="#" id="customer-care-button">Customer Care</a></li>
+                <li><a href="#" id="company-overview-button">Company Overview</a></li>
+            </ul>
+        </nav>
+        <div class="login-button-container">
+            <button id="login-button" class="login-button">SIGN UP</button>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
-    
-    // web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyCDBDzKlpR2tp-iU3d3mE-X633_tst7RFQ",
-        authDomain: "carpricedatabase-cf2d7.firebaseapp.com",
-        databaseURL: "https://carpricedatabase-cf2d7-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "carpricedatabase-cf2d7",
-        storageBucket: "carpricedatabase-cf2d7.appspot.com",
-        messagingSenderId: "936522809834",
-        appId: "1:936522809834:web:b911fcdad821b409ef3293",
-        measurementId: "G-K6ZGY6G8ZC"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    // Function to handle user sign-up
-    async function signUp(email, password, firstName, lastName) {
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-            console.log("Sign-up successful!", user);
-            window.location.href = "https://icarprice.streamlit.app/#welcome-to-the-car-price-prediction-app";
-            // Save additional user information in Firestore
-            await setDoc(doc(db, "users", user.uid), {
-                email: user.email,
-                firstName: firstName,
-                lastName: lastName
+        <div class="know-more-container">
+            <p id="know-more-output">Know more about your car</p>
+        </div>
+        <div id="translucent-slide" class="translucent-slide">
+            <div class="container">
+                <div id="signup-form">
+                    <div class="heading">Sign Up</div>
+                    <form action="" class="form">
+                        <input required class="input" type="text" name="first_name" id="first_name" placeholder="First Name">
+                        <input required class="input" type="text" name="last_name" id="last_name" placeholder="Last Name">
+                        <input required class="input" type="email" name="email" id="email" placeholder="Email ID">
+                        <input required class="input" type="password" name="password" id="password" placeholder="Password">
+                        <input required class="input" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+                        <span class="forgot-password"><a href="#" id="to-login">Already have an account?</a></span>
+                        <input class="login-button" type="submit" value="Sign Up">
+                    </form>
+                </div>
+                <div id="login-form" style="display: none;">
+                    <div class="heading">Login</div>
+                    <form action="" class="form">
+                        <input required class="input" type="email" name="email" id="login_email" placeholder="Email ID">
+                        <input required class="input" type="password" name="password" id="login_password" placeholder="Password">
+                        <span class="forgot-password"><a href="#" id="to-signup">Don't have an account?</a></span>
+                        <input class="login-button" type="submit" value="Login">
+                    </form>
+                </div>
+                <div class="social-account-container"></div>
+                <button id="cancel-button" class="cancel-button">Cancel</button>
+            </div>
+        </div>
+        <div id="about-us-slide" class="about-us-slide">
+            <div class="about-us-content">
                 
-            });
+                <h2>About Us</h2>
+                <section class="our-story">
+                    <h3>Our Story</h3>
+                    <p>Welcome to inspectcar.io!, where we help you to find the right price of your used car using machine learning!</p>
+                </section>
+                
+                <section class="meet-the-team">
+                    <h3>Meet the Team</h3>
+                    <div class="team-member">
+                        <img src="yashas.jpg" alt="yashas">
+                        <h4>Yashas Jain</h4>
+                        <p>Title or Position</p>
+                        <p>A brief description of Person 1, their role, background, and contributions to the company.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="shree.jpg" alt="shree">
+                        <h4>Shree Mengshetti</h4>
+                        <p>Title or Position</p>
+                        <p>A brief description of Person 2, their role, background, and contributions to the company.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="soham.jpg" alt="soham">
+                        <h4>Soham Gogawale</h4>
+                        <p>Title or Position</p>
+                        <p>A brief description of Person 3, their role, background, and contributions to the company.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="shashwat.jpg" alt="shashwat">
+                        <h4>Shashwat Awate</h4>
+                        <p>Title or Position</p>
+                        <p>A brief description of Person 4, their role, background, and contributions to the company.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="company-overview-slide" class="company-overview-slide">
+            <div class="company-overview-content">
+                <h2>Company Overview</h2>
+                <p>Welcome to inspectcar.io, your trusted destination for precise and reliable pre-owned car price predictions. Our platform utilizes cutting-edge data analytics and sophisticated machine learning algorithms to offer unparalleled accuracy in car valuations, helping you make well-informed decisions in the used car market. At inspectcar.io, we believe that transparency and trust are the cornerstones of any successful transaction, and we strive to bring these values to every interaction on our platform.</p>
+                <p>Our user-friendly interface and comprehensive data insights make it easy for buyers and sellers alike to understand the true market value of any pre-owned vehicle. Whether you're looking to buy your next car or sell your current one, inspectcar.io provides the tools and information you need to ensure you get the best deal possible.</p>
+                <p>We are committed to continuous innovation, constantly refining our technology to deliver the most accurate and up-to-date price predictions. Our dedication to customer satisfaction means that we are always here to support you, providing exceptional service and guidance every step of the way.</p>
+                <p>Choose inspectcar.io for a seamless, transparent, and confident pre-owned car buying and selling experience.</p>
+            </div>
+        </div>
+        <div id="customer-care-slide" class="customer-care-slide">
+            <div class="customer-care-content">
+                <div class="container">
+                    <div class="heading">Customer Care</div>
+                    
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <p>If you need assistance, feel free to reach out to us through the following channels:</p>
+                        <p><strong>Email:</strong> 7997soham@gmail.com</p>
+                        <p><strong>Phone:</strong> 8605007997</p>
+                        <p><strong>Address:</strong> 1234 Elm Street, Springfield, IL, 62704</p>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>Contact Us</h2>
+                        <form action="submit_form.php" method="POST">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+        
+        // web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCDBDzKlpR2tp-iU3d3mE-X633_tst7RFQ",
+            authDomain: "carpricedatabase-cf2d7.firebaseapp.com",
+            databaseURL: "https://carpricedatabase-cf2d7-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "carpricedatabase-cf2d7",
+            storageBucket: "carpricedatabase-cf2d7.appspot.com",
+            messagingSenderId: "936522809834",
+            appId: "1:936522809834:web:b911fcdad821b409ef3293",
+            measurementId: "G-K6ZGY6G8ZC"
+        };
 
-            console.log("User data saved successfully!");
-        } catch (error) {
-            console.error("Error during sign-up:", error.code, error.message);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Function to handle user sign-up
+        async function signUp(email, password, firstName, lastName) {
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                console.log("Sign-up successful!", user);
+                window.location.href = "https://icarprice.streamlit.app/#welcome-to-the-car-price-prediction-app";
+                // Save additional user information in Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    email: user.email,
+                    firstName: firstName,
+                    lastName: lastName
+                    
+                });
+
+                console.log("User data saved successfully!");
+            } catch (error) {
+                console.error("Error during sign-up:", error.code, error.message);
+            }
         }
-    }
 
-    // Function to handle user sign-in
-    async function signIn(email, password) {
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-            console.log("Sign-in successful!", user);
-            window.location.href = "https://icarprice.streamlit.app/#welcome-to-the-car-price-prediction-app";
-        } catch (error) {
-            console.error("Error during sign-in:", error.code, error.message);
-            document.getElementById('error-message').textContent = "Wrong password";
+        // Function to handle user sign-in
+        async function signIn(email, password) {
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                console.log("Sign-in successful!", user);
+                window.location.href = "https://icarprice.streamlit.app/#welcome-to-the-car-price-prediction-app";
+            } catch (error) {
+                console.error("Error during sign-in:", error.code, error.message);
+                document.getElementById('error-message').textContent = "Wrong password";
+            }
         }
-    }
 
-    // Event listeners for form submissions
-    document.getElementById('signup-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const firstName = document.getElementById('first_name').value;
-        const lastName = document.getElementById('last_name').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        signUp(email, password, firstName, lastName);
-    });
+        // Event listeners for form submissions
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('first_name').value;
+            const lastName = document.getElementById('last_name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            signUp(email, password, firstName, lastName);
+        });
 
-    document.getElementById('login-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('login_email').value;
-        const password = document.getElementById('login_password').value;
-        signIn(email, password);
-    });
-</script>
-</html>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login_email').value;
+            const password = document.getElementById('login_password').value;
+            signIn(email, password);
+        });
+    
+    </script>
+    </html>
