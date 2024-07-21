@@ -16,10 +16,16 @@
     background-color: #000;
     z-index: 2;
     transition: opacity 0.5s;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .front-page.fade-out {
     opacity: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .background-image {
@@ -35,6 +41,9 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .background-image video {
@@ -44,10 +53,16 @@
     min-height: 100%;
     object-fit: cover;
     transform: scale(1.1);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .background-image.show {
     opacity: 1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .nav-bar {
@@ -60,6 +75,9 @@
     text-align: center;
     backdrop-filter: blur(1px);
     z-index: 3;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
     
 }
 
@@ -70,12 +88,18 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .menu-icon {
     display: none;
     font-size: 24px;
     cursor: pointer;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .nav-links {
@@ -85,10 +109,16 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .nav-links li {
     margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .nav-links a {
@@ -97,6 +127,9 @@
     font-size: 18px;
     padding: 10px 20px;
     transition: color 0.3s ease, background-color 0.3s ease;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .nav-links a:hover {
