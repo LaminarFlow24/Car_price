@@ -67,5 +67,32 @@ document.addEventListener('keydown', (event) => {
         document.querySelector('#about-us-slide').style.display = 'none';
     }
 });
+document.getElementById('company-overview-button').addEventListener('click', () => {
+    document.getElementById('company-overview-slide').style.display = 'flex';
+});
+
+// Close the company overview slide when clicking outside the content
+document.getElementById('company-overview-slide').addEventListener('click', (event) => {
+    if (event.target === document.getElementById('company-overview-slide')) {
+        document.getElementById('company-overview-slide').style.display = 'none';
+    }
+});
+
+// Close the company overview slide when pressing the 'Escape' key
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        document.getElementById('company-overview-slide').style.display = 'none';
+    }
+});
+document.getElementById('customer-care-button').addEventListener('click', () => {
+    document.getElementById('customer-care-slide').style.display = 'flex';
+});
+
+// Close the customer care slide when clicking outside the content
+document.getElementById('customer-care-slide').addEventListener('click', (event) => {
+    if (event.target === document.getElementById('customer-care-slide')) {
+        document.getElementById('customer-care-slide').style.display = 'none';
+    }
+});
 
 });
