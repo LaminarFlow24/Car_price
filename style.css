@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .front-page {
@@ -40,7 +40,7 @@ body {
     height: auto;
     min-width: 100%;
     min-height: 100%;
-    object-fit: cover;
+    object-fit: cover; 
     transform: scale(1.1);
 }
 
@@ -54,19 +54,9 @@ body {
     left: 0;
     width: 100%;
     background-color: rgba(46, 47, 54, 0.5);
-    padding: 10px 0;
+    padding: 10px;
     text-align: center;
     backdrop-filter: blur(1px);
-    z-index: 3;
-}
-
-.nav-bar .nav-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .nav-bar ul {
@@ -74,29 +64,19 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
 }
 
 .nav-bar li {
-    margin: 0;
+    margin-right: 20px; /* Reduced margin */
 }
 
 .nav-bar a {
     color: #f0f5f2;
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px 20px;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    font-size: 18px; /* Adjusted font size */
 }
 
-.nav-bar a:hover {
-    color: #fff;
-    background-color: rgba(46, 47, 54, 0.8);
-    border-radius: 5px;
-}
-
-/* Rest of your CSS remains unchanged */
 .know-more-container {
     position: absolute;
     top: 50%;
@@ -108,16 +88,16 @@ body {
     color: #f7efef;
     text-align: center;
     z-index: 1;
-    transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out; /* Smooth transition */
 }
 
 .know-more-container.shrink {
-    top: 60px;
+    top: 60px; /* Position below the nav bar */
     left: 50%;
     width: 100%;
     font-size: 110px;
-    text-align: center;
-    transform: translate(-50%, 0);
+    text-align: center; /* Ensure it remains center-aligned */
+    transform: translate(-50%, 0); /* Center horizontally */
 }
 
 .login-button-container {
@@ -125,8 +105,8 @@ body {
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out; /* Smooth opacity transition */
 }
 
 .login-button {
@@ -171,7 +151,7 @@ body {
 
 .translucent-slide {
     position: fixed;
-    bottom: -100%;
+    bottom: -100%; /* Start below the viewport */
     left: 0;
     width: 100%;
     height: 100vh;
@@ -185,7 +165,7 @@ body {
 }
 
 .translucent-slide.show {
-    bottom: 0;
+    bottom: 0; 
 }
 
 .cancel-button {
@@ -351,4 +331,67 @@ body {
     text-decoration: none;
     color: #0099ff;
     font-size: 9px;
+}
+.about-us-slide {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* translucent background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.about-us-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #000; /* text color */
+    position: relative;
+    
+}
+
+
+
+.our-story, .meet-the-team {
+    margin-bottom: 20px;
+}
+
+.our-story h3, .meet-the-team h3 {
+    margin-top: 0;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.team-member img {
+    width: 110px;
+    height: 175px;
+    margin-right: 10px;
+    object-fit: cover ;
+    flex-shrink: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.team-member h4 {
+    margin: 0 0 5px 0;
+}
+
+.team-member p {
+    margin: 0;
 }
