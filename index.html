@@ -182,7 +182,7 @@
             }
         }
 
-        // Function to handle user sign-in
+     
         async function signIn(email, password) {
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -195,7 +195,6 @@
             }
         }
 
-        // Event listeners for form submissions
         document.getElementById('signup-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const firstName = document.getElementById('first_name').value;
