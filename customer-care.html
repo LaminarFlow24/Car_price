@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Care</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+            z-index: 10;
+        }
+        .heading {
+            text-align: center;
+            font-size: 2em;
+            color: #444;
+        }
+        .contact-info, .contact-form, .resources {
+            margin-top: 20px;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+        .resources {
+            text-align: center;
+        }
+        .resources button {
+            padding: 10px 20px;
+            background-color: black;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .resources button:hover {
+            background-color: #218838;
+        }
+        .resources a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .resources a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-wrapper" id="containerWrapper">
+        <div class="container" id="container">
+            <div class="heading">Customer Care</div>
+            
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>If you need assistance, feel free to reach out to us through the following channels:</p>
+                <p><strong>Email:</strong> 7997soham@gmail.com</p>
+                <p><strong>Phone:</strong> 8605007997</p>
+                <p><strong>Address:</strong> 1234 Elm Street, Springfield, IL, 62704</p>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form action="submit_form.php" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="resources">
+                <button id="backButton"><a href="index.html">Back</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToIndex() {
+            window.location.href = 'index.html';
+        }
+
+        document.addEventListener('click', function(event) {
+            const container = document.getElementById('container');
+            if (!container.contains(event.target)) {
+                redirectToIndex();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                redirectToIndex();
+            }
+        });
+
+        document.getElementById('backButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            redirectToIndex();
+        });
+    </script>
+</body>
+</html>

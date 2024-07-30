@@ -1,0 +1,115 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Fullscreen panel with a semi-transparent background */
+#slidePanel {
+    position: fixed;
+    top: -100%; /* Hide the panel above the viewport */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: top 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+    z-index: 1000; /* Ensure the panel is above all other elements */
+}
+
+/* Content styling */
+.panel-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    max-width: 800px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+    z-index: 1001; /* Ensure the content is above the panel background */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.panel-content h2 {
+    margin-top: 0;
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+}
+
+.panel-content p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Show class to slide down the panel */
+#slidePanel.show {
+    top: 0; /* Slide the panel down to cover the viewport */
+}
+
+/* Additional Styles for Better Presentation */
+.panel-content p:first-of-type {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #444;
+}
+
+.panel-content ul {
+    list-style: disc inside;
+    padding-left: 20px;
+    margin: 20px 0;
+    color: #444;
+}
+
+.panel-content ul li {
+    margin-bottom: 10px;
+}
+
+.panel-content a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.panel-content a:hover {
+    color: #0056b3;
+}
+
+/* Add some spacing to paragraphs */
+.panel-content p {
+    margin-bottom: 1.5em;
+}
